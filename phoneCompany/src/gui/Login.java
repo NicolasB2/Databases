@@ -12,13 +12,14 @@ public class Login extends JFrame implements ActionListener {
 	public boolean loginCorrect;
 
 	private JLabel lbTitle;
-	private JLabel lbTextRegistrer;
 
 	private JLabel lbIconUser;
 	private JLabel lbIconPassword;
 
 	private JPlaceholderTextField txtEmail;
-	private JPasswordField txtPass;
+	private JPlaceholderTextField  txtPass;
+	
+	private JLabel lbIconCorreo;
 
 	private JButton butLogin;
 	private JButton butPanelRegistrar;
@@ -35,22 +36,23 @@ public class Login extends JFrame implements ActionListener {
 		lbTitle = new JLabel("Sing in", SwingConstants.CENTER);
 		lbTitle.setFont(new java.awt.Font("Calibri", 1, 28));
 
-		lbTextRegistrer = new JLabel("Don't have account?", SwingConstants.CENTER);
-		lbTextRegistrer.setFont(new java.awt.Font("Calibri", 1, 18));
-
 		txtEmail = new JPlaceholderTextField("Email");
 		txtEmail.setFont(new java.awt.Font("Calibri", 1, 18));
-		txtPass = new JPasswordField();
+		txtPass = new JPlaceholderTextField("Password");
+		txtPass.setFont(new java.awt.Font("Calibri", 1, 18));
 
-		String path = "/icons/user.png";
-		java.net.URL url = this.getClass().getResource(path);
-		ImageIcon icon = new ImageIcon(url);
+		String path = "icons/user.png";
+		ImageIcon icon = new ImageIcon(path);
 		lbIconUser = new JLabel("", SwingConstants.CENTER);
 		lbIconUser.setIcon(icon);
-
-		String path2 = "/icons/password.png";
-		java.net.URL url2 = this.getClass().getResource(path2);
-		ImageIcon icon2 = new ImageIcon(url2);
+		
+		String path1 = "icons/correo.png";
+		ImageIcon icon1 = new ImageIcon(path1);
+		lbIconCorreo = new JLabel("", SwingConstants.CENTER);
+		lbIconCorreo.setIcon(icon1);
+		
+		String path2 = "icons/password.png";
+		ImageIcon icon2 = new ImageIcon(path2);
 		lbIconPassword = new JLabel("", SwingConstants.CENTER);
 		lbIconPassword.setIcon(icon2);
 
@@ -77,13 +79,13 @@ public class Login extends JFrame implements ActionListener {
 		auxLogin.add(new JLabel());
 		auxLogin.add(new JLabel());
 		auxLogin.add(new JLabel());
-		auxLogin.add(new JLabel());
+		auxLogin.add(lbIconUser);
 		auxLogin.add(txtEmail);
 		auxLogin.add(new JLabel());
 		auxLogin.add(new JLabel());
 		auxLogin.add(new JLabel());
 		auxLogin.add(new JLabel());
-		auxLogin.add(new JLabel());
+		auxLogin.add(lbIconPassword);
 		auxLogin.add(txtPass);
 		auxLogin.add(new JLabel());
 		auxLogin.add(new JLabel());
@@ -95,13 +97,7 @@ public class Login extends JFrame implements ActionListener {
 		auxLogin.add(new JLabel());
 		auxLogin.add(new JLabel());
 
-		JPanel auxRegistrer = new JPanel();
-		auxRegistrer.setLayout(new GridLayout(1, 2));
-		auxRegistrer.add(lbTextRegistrer);
-		auxRegistrer.add(butPanelRegistrar);
-
 		add(auxLogin, BorderLayout.CENTER);
-		add(auxRegistrer, BorderLayout.SOUTH);
 	}
 
 	public String getEmail() {
