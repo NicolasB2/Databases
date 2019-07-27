@@ -26,7 +26,7 @@ public class Login extends JFrame implements ActionListener {
 	public Login(MainGui main) {
 
 		this.main = main;
-		setTitle("Agar.io");
+		setTitle("Login");
 		setSize(333, 333);
 		setLocationRelativeTo(null);
 		setResizable(false);

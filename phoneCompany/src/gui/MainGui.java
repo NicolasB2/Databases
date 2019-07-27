@@ -13,14 +13,16 @@ public class MainGui extends JFrame{
 	public static final int WINDOW_POS_Y = 50;
 	
 	private Login login;
+	private Menu menu;
 	private PhoneCompany pc;
 	
 	public MainGui() {
 		
-		pc = new PhoneCompany();
-		
+		pc = new PhoneCompany();		
+		menu = new Menu(this);
+		menu.setVisible(true);
 		login = new Login(this);
-		login.setVisible(true);
+//		login.setVisible(true);
 		
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setVisible(false);
@@ -39,7 +41,7 @@ public class MainGui extends JFrame{
 	}
 	
 	public void showMenu() {
-		JOptionPane.showMessageDialog(null, "CorrectLogin");
+		menu.setVisible(true);
 	}
 	
 	public static void main(String[] args) {
