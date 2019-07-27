@@ -15,10 +15,17 @@ public class PhoneCompany {
 	 * @param password contraseña de la base de datos
 	 * @throws Exception No es posible conectarse con la base de datos
 	 */
-	public void createConection(String user, String password) throws Exception {
+	public boolean createConection(String user, String password) throws Exception {
 		this.connection = ConnectionDB.createConnection(user, password);
-		this.password = password;
-		this.user = user;
+		
+		if(connection!=null) {
+			this.password = password;
+			this.user = user;
+			return true;
+		}
+		
+		return false;
+		
 	}
 
 	// *******************************************************************************************************
@@ -134,6 +141,7 @@ public class PhoneCompany {
 		return connection;
 	}
 
+	/**
 	public static void main(String[] args) {
 		PhoneCompany pc = new PhoneCompany();
 
@@ -147,5 +155,5 @@ public class PhoneCompany {
 			System.out.println(e.getMessage());
 		}
 	}
-
+	*/
 }

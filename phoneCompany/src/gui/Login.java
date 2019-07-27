@@ -7,27 +7,25 @@ import javax.swing.*;
 
 public class Login extends JFrame implements ActionListener {
 
+	
 	public static final String LOGIN = "Login";
-	public static final String GO_REGISTRER = "Go registrer";
 	public boolean loginCorrect;
+	private JButton butLogin;
 
 	private JLabel lbTitle;
-
+	
 	private JLabel lbIconUser;
 	private JLabel lbIconPassword;
-
-	private JPlaceholderTextField txtEmail;
-	private JPlaceholderTextField  txtPass;
-	
 	private JLabel lbIconCorreo;
 
-	private JButton butLogin;
-	private JButton butPanelRegistrar;
+	private JPlaceholderTextField txtEmail;
+	private JPlaceholderTextField txtPass;
+	
+	private MainGui main;
+	
+	public Login(MainGui main) {
 
-	public String email;
-
-	public Login() {
-
+		this.main = main;
 		setTitle("Agar.io");
 		setSize(333, 333);
 		setLocationRelativeTo(null);
@@ -61,13 +59,7 @@ public class Login extends JFrame implements ActionListener {
 		butLogin.setActionCommand(LOGIN);
 		butLogin.addActionListener(this);
 
-		butPanelRegistrar = new JButton("Registrer");
-		butPanelRegistrar.setFont(new java.awt.Font("Calibri", 1, 18));
-		butPanelRegistrar.setActionCommand(GO_REGISTRER);
-		butPanelRegistrar.addActionListener(this);
-
 		setLayout(new BorderLayout());
-
 		JPanel auxLogin = new JPanel();
 		auxLogin.setLayout(new GridLayout(9, 3));
 		auxLogin.add(new JLabel());
@@ -96,7 +88,6 @@ public class Login extends JFrame implements ActionListener {
 		auxLogin.add(new JLabel());
 		auxLogin.add(new JLabel());
 		auxLogin.add(new JLabel());
-
 		add(auxLogin, BorderLayout.CENTER);
 	}
 
@@ -113,7 +104,10 @@ public class Login extends JFrame implements ActionListener {
 		String comand = e.getActionCommand();
 
 		if (comand.equals(LOGIN)) {	
-			
+			this.loginCorrect = main.verifyLogin(getEmail(), getPassword());
+			if(loginCorrect) {
+				main.showMenu();
+			}
 		} 
 	}
 
