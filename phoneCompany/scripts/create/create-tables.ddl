@@ -1,24 +1,3 @@
--- Generado por Oracle SQL Developer Data Modeler 18.3.0.268.1208
---   en:        2019-05-24 15:21:17 COT
---   sitio:      Oracle Database 11g
---   tipo:      Oracle Database 11g
-
-
-
-DROP TABLE asignacion CASCADE CONSTRAINTS;
-
-DROP TABLE cliente CASCADE CONSTRAINTS;
-
-DROP TABLE funcionario CASCADE CONSTRAINTS;
-
-DROP TABLE producto CASCADE CONSTRAINTS;
-
-DROP TABLE productocliente CASCADE CONSTRAINTS;
-
-DROP TABLE solicitud CASCADE CONSTRAINTS;
-
-DROP TABLE tipo CASCADE CONSTRAINTS;
-
 CREATE TABLE asignacion ( 
 --  Fecha de la asignacion
     fecha                       DATE NOT NULL,

@@ -15,9 +15,9 @@ public class MainGui extends JFrame{
 	public static final String CLIENT = "Client";
 	public static final String FUNCTIONARY = "Functionary";
 	
+	private PhoneCompany pc;
 	private Login login;
 	private Menu menu;
-	private PhoneCompany pc;
 	private AddPanel add;
 	private FindPanel find;
 	
@@ -27,8 +27,6 @@ public class MainGui extends JFrame{
 		menu = new Menu(this);
 		login = new Login(this);
 		login.setVisible(true);
-		
-		showMenu();
 		
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setVisible(false);
@@ -61,6 +59,42 @@ public class MainGui extends JFrame{
 		menu.setVisible(false);
 		find = new FindPanel(type, this);
 		find.setVisible(true);
+	}
+	
+	public void add_(String type, String ivId, String ivContrasenha, String ivNombre,
+			String ivCedula, String ivDireccion, String ivFecha, String ivTelefono) {
+		
+		try {
+			
+			if(type.equals(CLIENT)){
+				pc.AddClient(ivId, ivContrasenha, ivNombre, ivCedula, ivDireccion, ivFecha, ivTelefono);
+			}
+			
+			if(type.equals(FUNCTIONARY)){
+				pc.AddFuncionario(ivId, ivContrasenha, ivNombre, ivCedula, ivDireccion, ivFecha, ivTelefono);
+			}
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public void find_(String type, String cedula) {
+		try {
+			
+			if(type.equals(CLIENT)){
+				String answer = pc.consultClient(cedula);
+				JOptionPane.showMessageDialog(this, answer);
+			}
+			
+			if(type.equals(FUNCTIONARY)){
+				String answer = pc.consultaFuncionario(cedula);
+				JOptionPane.showMessageDialog(this, answer);
+			}
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 	}
 	
 	public static void main(String[] args) {

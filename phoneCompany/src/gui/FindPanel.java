@@ -20,7 +20,6 @@ public class FindPanel extends JFrame implements ActionListener  {
 	private JLabel lbId;
 	private JLabel lbContrasenha;
 	private JLabel lbNombre;
-	private JLabel lbCedula;
 	private JLabel lbDireccion;
 	private JLabel lbFecha;
 	private JLabel lbTelefono;
@@ -28,10 +27,10 @@ public class FindPanel extends JFrame implements ActionListener  {
 	private TextField txtId;
 	private TextField txtContrasenha;
 	private TextField txtNombre;
-	private TextField txtCedula;
 	private TextField txtDireccion;
 	private TextField txtFecha;
 	private TextField txtTelefono;
+	private HTextField txtCedula;
 	
 	private MainGui main;
 	private String type;
@@ -44,9 +43,6 @@ public class FindPanel extends JFrame implements ActionListener  {
 		setSize(400, 400);
 		setLocationRelativeTo(null);
 		setLayout(new BorderLayout());
-		
-		lbCedula = new JLabel("Cedula", SwingConstants.CENTER);
-		lbCedula.setFont(new java.awt.Font("Calibri", 1, 28));
 		
 		lbContrasenha = new JLabel("Contrasenia", SwingConstants.CENTER);
 		lbContrasenha.setFont(new java.awt.Font("Calibri", 1, 28));
@@ -66,7 +62,7 @@ public class FindPanel extends JFrame implements ActionListener  {
 		lbTelefono = new JLabel("Telefono", SwingConstants.CENTER);
 		lbTelefono.setFont(new java.awt.Font("Calibri", 1, 28));
 		
-		txtCedula = new TextField("");
+		txtCedula = new HTextField("cedula");
 		txtContrasenha = new TextField("");
 		txtDireccion = new TextField("");
 		txtFecha = new TextField("");
@@ -80,7 +76,7 @@ public class FindPanel extends JFrame implements ActionListener  {
 		butFind.addActionListener(this);
 		
 		JPanel data = new JPanel();
-		data.setLayout(new GridLayout(15, 2));
+		data.setLayout(new GridLayout(13, 2));
 		
 		data.add(new JLabel());
 		data.add(new JLabel());
@@ -103,11 +99,6 @@ public class FindPanel extends JFrame implements ActionListener  {
 		data.add(new JLabel());
 		data.add(new JLabel());
 		
-		data.add(lbCedula);
-		data.add(txtCedula);
-		
-		data.add(new JLabel());
-		data.add(new JLabel());
 		
 		data.add(lbDireccion);
 		data.add(txtDireccion);
@@ -128,18 +119,28 @@ public class FindPanel extends JFrame implements ActionListener  {
 		data.add(new JLabel());
 		
 		JPanel button = new JPanel();
-		button.setLayout(new GridLayout(2,3));
+		button.setLayout(new GridLayout(3,5));
+
+		button.add(new JLabel());
+		button.add(new JLabel());
+		button.add(new JLabel());
+		button.add(new JLabel());
+		button.add(new JLabel());
 		
 		button.add(new JLabel());
-		button.add(butFind);
+		button.add(butFind);	
+		button.add(new JLabel());
+		button.add(txtCedula);
 		button.add(new JLabel());
 		
+		button.add(new JLabel());
+		button.add(new JLabel());
 		button.add(new JLabel());
 		button.add(new JLabel());
 		button.add(new JLabel());
 		
 		add(data, BorderLayout.CENTER);
-		add(button, BorderLayout.SOUTH);
+		add(button, BorderLayout.NORTH);
 		add(new JLabel("          "),BorderLayout.EAST);
 	}
 
@@ -148,7 +149,7 @@ public class FindPanel extends JFrame implements ActionListener  {
 		String command = e.getActionCommand();
 
 		if (command.equals(FIND)) {	
-			
+			main.find_(type, txtCedula.getText());
 		}
 		
 	}
