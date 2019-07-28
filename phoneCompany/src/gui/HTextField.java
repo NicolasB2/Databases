@@ -6,15 +6,15 @@ import java.awt.RenderingHints;
 import javax.swing.JTextField;
 
 @SuppressWarnings("serial")
-public class JPlaceholderTextField extends JTextField {
+public class HTextField extends JTextField {
 
 	private String ph;
 
-	public JPlaceholderTextField(String ph) {
+	public HTextField(String ph) {
 		this.ph = ph;
 	}
 	
-	public JPlaceholderTextField() {
+	public HTextField() {
 		this.ph = null;
 	}
 

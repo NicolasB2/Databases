@@ -49,7 +49,6 @@ public class Menu extends JFrame implements ActionListener {
 		butAdd_C.setFont(new java.awt.Font("Calibri", 1, 18));
 		butAdd_C.setActionCommand(ADD_C);
 		butAdd_C.addActionListener(this);
-		butAdd_C.setSize(new Dimension(130,30));
 		
 		butFind_C = new JButton("Find");
 		butFind_C.setFont(new java.awt.Font("Calibri", 1, 18));
@@ -67,6 +66,7 @@ public class Menu extends JFrame implements ActionListener {
 		butFind_F.addActionListener(this);
 		
 		setLayout(new BorderLayout());
+		
 		JPanel title = new JPanel();
 		title.setLayout(new GridLayout(3, 1));
 		
@@ -134,19 +134,19 @@ public class Menu extends JFrame implements ActionListener {
 
 		switch (command) {
 		case ADD_C:
-			main.showAdd();
+			main.showAdd(MainGui.CLIENT);
 			break;
 
 		case FIND_C:
-			main.showFind();
+			main.showFind(MainGui.CLIENT);
 			break;
 			
 		case ADD_F:
-			main.showAdd();
+			main.showAdd(MainGui.FUNCTIONARY);
 			break;
 
 		case FIND_F:
-			main.showFind();
+			main.showFind(MainGui.FUNCTIONARY);
 			break;
 		} 
 	}

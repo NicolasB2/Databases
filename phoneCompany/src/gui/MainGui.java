@@ -12,9 +12,14 @@ public class MainGui extends JFrame{
 	public static final int WINDOW_POS_X = 50;
 	public static final int WINDOW_POS_Y = 50;
 	
+	public static final String CLIENT = "Client";
+	public static final String FUNCTIONARY = "Functionary";
+	
 	private Login login;
 	private Menu menu;
 	private PhoneCompany pc;
+	private AddPanel add;
+	private FindPanel find;
 	
 	public MainGui() {
 		
@@ -22,6 +27,8 @@ public class MainGui extends JFrame{
 		menu = new Menu(this);
 		login = new Login(this);
 		login.setVisible(true);
+		
+		showMenu();
 		
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setVisible(false);
@@ -44,12 +51,16 @@ public class MainGui extends JFrame{
 		menu.setVisible(true);
 	}
 	
-	public void showAdd() {
-		
+	public void showAdd(String type) {
+		menu.setVisible(false);
+		add = new AddPanel(type, this);
+		add.setVisible(true);
 	}
 	
-	public void showFind() {
-		
+	public void showFind(String type) {
+		menu.setVisible(false);
+		find = new FindPanel(type, this);
+		find.setVisible(true);
 	}
 	
 	public static void main(String[] args) {

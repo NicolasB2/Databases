@@ -18,8 +18,8 @@ public class Login extends JFrame implements ActionListener {
 	private JLabel lbIconPassword;
 	private JLabel lbIconCorreo;
 
-	private JPlaceholderTextField txtEmail;
-	private JPlaceholderTextField txtPass;
+	private HTextField txtEmail;
+	private HTextField txtPass;
 	
 	private MainGui main;
 	
@@ -34,9 +34,9 @@ public class Login extends JFrame implements ActionListener {
 		lbTitle = new JLabel("Sing in", SwingConstants.CENTER);
 		lbTitle.setFont(new java.awt.Font("Calibri", 1, 28));
 
-		txtEmail = new JPlaceholderTextField("Email");
+		txtEmail = new HTextField("Email");
 		txtEmail.setFont(new java.awt.Font("Calibri", 1, 18));
-		txtPass = new JPlaceholderTextField("Password");
+		txtPass = new HTextField("Password");
 		txtPass.setFont(new java.awt.Font("Calibri", 1, 18));
 
 		String path = "icons/user.png";
@@ -101,9 +101,9 @@ public class Login extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		String comand = e.getActionCommand();
+		String command = e.getActionCommand();
 
-		if (comand.equals(LOGIN)) {	
+		if (command.equals(LOGIN)) {	
 			this.loginCorrect = main.verifyLogin(getEmail(), getPassword());
 			if(loginCorrect) {
 				main.showMenu();
