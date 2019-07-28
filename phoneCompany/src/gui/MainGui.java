@@ -20,9 +20,8 @@ public class MainGui extends JFrame{
 		
 		pc = new PhoneCompany();		
 		menu = new Menu(this);
-		menu.setVisible(true);
 		login = new Login(this);
-//		login.setVisible(true);
+		login.setVisible(true);
 		
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setVisible(false);
@@ -41,7 +40,16 @@ public class MainGui extends JFrame{
 	}
 	
 	public void showMenu() {
+		login.setVisible(false);
 		menu.setVisible(true);
+	}
+	
+	public void showAdd() {
+		
+	}
+	
+	public void showFind() {
+		
 	}
 	
 	public static void main(String[] args) {
