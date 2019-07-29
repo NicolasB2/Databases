@@ -68,10 +68,12 @@ public class MainGui extends JFrame{
 			
 			if(type.equals(CLIENT)){
 				pc.AddClient(ivId, ivContrasenha, ivNombre, ivCedula, ivDireccion, ivFecha, ivTelefono);
+				JOptionPane.showMessageDialog(this, "added correctly");
 			}
 			
 			if(type.equals(FUNCTIONARY)){
 				pc.AddFuncionario(ivId, ivContrasenha, ivNombre, ivCedula, ivDireccion, ivFecha, ivTelefono);
+				JOptionPane.showMessageDialog(this, "added correctly");
 			}
 			
 		} catch (Exception e) {
@@ -79,22 +81,22 @@ public class MainGui extends JFrame{
 		}
 	}
 	
-	public void find_(String type, String cedula) {
+	public String  find_(String type, String cedula) {
 		try {
 			
 			if(type.equals(CLIENT)){
-				String answer = pc.consultClient(cedula);
-				JOptionPane.showMessageDialog(this, answer);
+				return pc.consultClient(cedula);
 			}
 			
 			if(type.equals(FUNCTIONARY)){
-				String answer = pc.consultaFuncionario(cedula);
-				JOptionPane.showMessageDialog(this, answer);
+				return pc.consultaFuncionario(cedula);
 			}
 			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
+		
+		return null;
 	}
 	
 	public static void main(String[] args) {

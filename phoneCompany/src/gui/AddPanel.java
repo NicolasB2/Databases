@@ -75,7 +75,7 @@ public class AddPanel extends JFrame implements ActionListener {
 		txtNombre = new TextField("");
 		txtTelefono = new TextField("");
 		
-		butAdd = new JButton("Find");
+		butAdd = new JButton("Add");
 		butAdd.setFont(new java.awt.Font("Calibri", 1, 18));
 		butAdd.setActionCommand(ADD);
 		butAdd.addActionListener(this);
@@ -150,7 +150,7 @@ public class AddPanel extends JFrame implements ActionListener {
 		String command = e.getActionCommand();
 
 		if (command.equals(ADD)) {	
-			
+			main.add_(type, txtId.getText(), txtContrasenha.getText(), txtNombre.getText(), txtCedula.getText(), txtDireccion.getText(), txtFecha.getText(), txtTelefono.getText());
 		} 
 	}
 }

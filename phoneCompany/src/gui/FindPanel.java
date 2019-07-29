@@ -149,7 +149,21 @@ public class FindPanel extends JFrame implements ActionListener  {
 		String command = e.getActionCommand();
 
 		if (command.equals(FIND)) {	
-			main.find_(type, txtCedula.getText());
+			String answer = main.find_(type, txtCedula.getText());
+			String[] data = answer.split(",");
+			String vNombre = data[0];
+			String vId = data[1];
+			String vDireccion = data[2];
+			String vFecha_nacimiento = data[3];
+			String vTelefono = data[4];
+			String vContrasena = data[5];
+			
+			txtContrasenha.setText(vContrasena);
+			txtDireccion.setText(vDireccion);
+			txtFecha.setText(vFecha_nacimiento);
+			txtId.setText(vId);
+			txtNombre.setText(vNombre);
+			txtTelefono.setText(vTelefono);
 		}
 		
 	}
